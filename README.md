@@ -1,2 +1,2 @@
 # OO2018
-Java weekly exercises
+Java weekly exercises 2
