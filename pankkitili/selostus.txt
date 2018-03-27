@@ -1,0 +1,17 @@
+Harjoitus 1:
+
+Aikaa kului n. 4 tuntia.
+
+Tein tehtävästä kaksi versiota, joista lopullisen 
+Tein harjoitusvastauksien perusteelta.
+Toiminnallisuus ei toki vastannut lähellekään
+johdatus ohjelmointiin kurssin lopputyötä, mutta
+tästä voisi hyvin lähetä kehittämään parempaa versiota.
+
+Palautus siältää 2 main tiedostoa josta numero 2 toimii yhdelle tilille, 
+Ja PankkitiliMain useammallekin.
+
+Mieleen jäi, että kannattaako käyttää saanti-
+ja asetus metodeita konstruktoreissa ja luokat muissa 
+metodeissa vaan käyttää suoraan muuttujia.
+Opin perus-asioita javasta tehtävää tehdessä.
