@@ -5,15 +5,13 @@ import java.lang.Integer;
 
 public class Asukkaat {
 	private String name;
-	private String birthdate;
+	private String birthDate;
 	static Scanner lukija = new Scanner(System.in);
 	static int as_lkm;
 
-	public Asukkaat(int i) {
-		System.out.println("Asukkaan " + i + " nimi: ");
-		setName(lukija.nextLine());
-		System.out.println("Asukkaan " + i + " syntymäaika: ");
-		setBirthdate(lukija.nextLine());
+	public Asukkaat(String name, String birthDate) {
+		this.name = name;
+		this.birthDate = birthDate;
 		as_lkm++;
 	}
 	public void printInfo() {
@@ -24,12 +22,12 @@ public class Asukkaat {
 		return name;
 	}
 	public String getBirthdate() {
-		return birthdate;
+		return birthDate;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthdate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 }
