@@ -6,22 +6,19 @@ import java.lang.Integer;
 public class Asukkaat {
 	private String name;
 	private String birthdate;
-	private Rakennus rakki;
 	static Scanner lukija = new Scanner(System.in);
 	static int as_lkm;
 
-	public Asukkaat(int i, String asukkaan_nimi, String asukkaan_synt, Rakennus rak) {
-		rakki = rak;
-		setName(asukkaan_nimi);
-		setBirthdate(asukkaan_synt);
+	public Asukkaat(int i) {
+		System.out.println("Asukkaan " + i + " nimi: ");
+		setName(lukija.nextLine());
+		System.out.println("Asukkaan " + i + " syntymäaika: ");
+		setBirthdate(lukija.nextLine());
 		as_lkm++;
 	}
 	public void printInfo() {
-		System.out.println("Asukkaan tiedot:");
 		System.out.println("Asukkaan nimi: " + getName());
 		System.out.println("Asukkaan syntymäaika: " + getBirthdate());
-		System.out.println("Asukkaan talon tiedot:");
-		rakki.printInfo();
 	}
 	public String getName() {
 		return name;
