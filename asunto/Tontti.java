@@ -10,13 +10,14 @@ public class Tontti {
 	private double area;
 	private Rakennus rak;
 
-	public Tontti(String name, String longitude, String latitude, double area) {
-		setName(name);
-		setLongitude(longitude);
-		setLatitude(latitude);
-		setArea(area);
-		Rakennus rakennus = new Rakennus(5, 2, 2);
-		setRakennus(rakennus);
+	public Tontti(String name, String longitude, String latitude, double area, double rak_area, 
+																			int rooms, int people) {
+		this.name = name;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.area = area;
+		Rakennus rakennus = new Rakennus(rak_area, rooms, people);
+		this.rak = rakennus;
 	}
 
 	public String getName() {
@@ -34,12 +35,10 @@ public class Tontti {
 	public void setRakennus(Rakennus rakennus) {
 		rak = rakennus;
 	}
-	public void printInfo() {
-		System.out.println("Tontin imi: " + getName());
-		System.out.println("Longituudi: " + getLongitude());
-		System.out.println("Latituudi: " + getLatitude());
-		System.out.println("Pinta-ala: " + getArea());
-		rak.printInfo();
+	public String toString() {
+		return "Tntin tiedot:\n" + "Tontin nimi: " + getName() + 
+				" \nTontin Latituudi: " + getLatitude()+ " \nTontin Longituudi: " +
+					getLongitude()+ " \nTontin ala: " + getArea() + rak.toString();
 	}
 	public void setName(String name) {
 		this.name = name;
