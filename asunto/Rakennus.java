@@ -22,7 +22,6 @@ public class Rakennus {
 		System.out.println("Rakennuksen ala: " + area);
 		System.out.println("Huoneiden määrä: " + room_count);
 		System.out.println("Ihmisten määrä " + dwellers);
-		System.out.println("Ihmisten määrä " + dwellers);
 		tont.printInfo();
 		
 	}
