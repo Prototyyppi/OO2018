@@ -12,7 +12,7 @@ public class Tontti {
 	private Rakennus rak;
 
 	public Tontti(String name, String longitude, String latitude, double area, double rak_area, 
-																			int rooms, int people) {
+																	int rooms, int people) {
 	//this is here just to be safe...
 	if (area < 0) {
 		throw new IllegalArgumentException("Negative value NOT allowed. Exiting...");
