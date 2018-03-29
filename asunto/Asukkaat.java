@@ -14,9 +14,9 @@ public class Asukkaat {
 		this.birthDate = birthDate;
 		as_lkm++;
 	}
-	public void printInfo() {
-		System.out.println("Asukkaan nimi: " + getName());
-		System.out.println("Asukkaan syntymäaika: " + getBirthdate());
+
+	public String toString() {
+		return "\n\nAsukkaan tiedot:\n" + "Asukkaan nimi: " + getName() + "\nAsukkaan syntymäaika: " + getBirthdate();
 	}
 	public String getName() {
 		return name;

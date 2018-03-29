@@ -62,4 +62,7 @@ public class Rakennus {
 		asukkaat[number] = new Asukkaat(name, birthDay);
 		*/
 	}
+	public String getAsukas(int i) {
+		return asukkaat[i].toString();
+	}
 }
