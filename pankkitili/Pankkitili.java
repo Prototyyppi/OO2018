@@ -36,7 +36,7 @@ class Pankkitili {
 	}
 
 	public void talletaRahaa(double amount) {
-		if (amount > 0){
+		if (amount >= 0){
 			saldo += amount;
 			System.out.println("OK," + tilinomistaja + " Saldosi: " + saldo);
 		}
@@ -44,7 +44,7 @@ class Pankkitili {
 			System.out.println(tilinomistaja + ", Negative number not accepted.");
 	}
 	public void nostaRahaa(double amount) {
-		if ((saldo > amount) && amount > 0) {
+		if ((saldo >= amount) && amount >= 0) {
 			saldo -= amount;
 			System.out.println("OK " + tilinomistaja + ". Saldosi: " + saldo);
 		}

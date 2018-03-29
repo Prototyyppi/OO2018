@@ -11,6 +11,7 @@ class PankkitiliMain2 {
 
 		Pankkitili tili = readTili();
 		printTili(tili);
+		System.out.print("Yritä tehdä 3 tililtä nostoa\n");
 		for (int i=0; i<3; i++) { //lets try 3 times
 		System.out.print("Paljonko nostetaan >");
 		double summa = lukija.nextDouble();
