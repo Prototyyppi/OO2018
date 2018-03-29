@@ -40,6 +40,7 @@ public class Tontti {
 				" \nTontin Latituudi: " + getLatitude()+ " \nTontin Longituudi: " +
 					getLongitude()+ " \nTontin ala: " + getArea() + rak.toString();
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
