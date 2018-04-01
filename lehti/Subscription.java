@@ -10,8 +10,11 @@ public abstract class Subscription {
 	private double kuukausihinta;
 
 
-	public Subscription() {
-
+	public Subscription(String lehden_nimi, String tilaaja, String osoite, double kuukausimaksu) {
+		this.lehden_nimi = lehden_nimi;
+		this.tilaajan_nimi = tilaaja;
+		this.toimitusosoite = osoite;
+		this.kuukausihinta = kuukausimaksu;
 	}
 
 	public String getName() {
@@ -28,9 +31,9 @@ public abstract class Subscription {
 	}
 
 	public String toString() {
-		return "Lehden tiedot:\n" + "TLehden nimi: " + getName() +
+		return "Lehden tiedot:\n" + "Lehden nimi: " + getName() +
 				" \nTilaajan nimi: " + getTilaaja()+ " \nToimitusosoite: " +
-				getToimitusosoite()+ " \nKuukausimaksu: " + getKuukausihinta() + getKuukausihinta();
+				getToimitusosoite()+ " \nKuukausimaksu: " + getKuukausihinta();
 	}
 
 	public void setName(String name) {
@@ -46,6 +49,6 @@ public abstract class Subscription {
 		this.kuukausihinta = hinta;
 	}
 
-	public abstract void printInvoice();
+	public abstract String printInvoice();
 	// different functionality depending on inheritor
 }

@@ -8,8 +8,8 @@ public class StandingSubscription extends Subscription {
 	private int tilauksen_kesto;
 	private int alennusprosentti;
 
-	public StandingSubscription() {
-
+	public StandingSubscription(String lehden_nimi, String tilaaja, String osoite, double kuukausimaksu) {
+		super(lehden_nimi, tilaaja, osoite, kuukausimaksu);
 	}
 
 	public int getKesto() {
@@ -30,9 +30,8 @@ public class StandingSubscription extends Subscription {
 		this.alennusprosentti = alennus;
 	}
 
-	public void printInvoice() {
-		super.toString();
-		this.toString();
+	public String printInvoice() {
+		return super.toString() + this.toString();
 	}
 
 }

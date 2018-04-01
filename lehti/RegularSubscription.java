@@ -7,8 +7,10 @@ public class RegularSubscription extends Subscription {
 
 	private int tilauksen_kesto;
 	private int alennusprosentti;
-	public RegularSubscription() {
-
+	public RegularSubscription(String lehden_nimi, String tilaaja, String osoite, double kuukausimaksu, int kesto, int alennus) {
+		super(lehden_nimi, tilaaja, osoite, kuukausimaksu);
+		tilauksen_kesto = kesto;
+		alennusprosentti = alennus;
 	}
 
 	public int getKesto() {
@@ -30,8 +32,7 @@ public class RegularSubscription extends Subscription {
 		this.alennusprosentti = alennus;
 	}
 
-	public void printInvoice() {
-		super.toString();
-		this.toString();
+	public String printInvoice() {
+		return super.toString() + this.toString();
 	}
 }
