@@ -54,15 +54,12 @@ public class Rakennus {
 		return ok;
 	}
 	public void removeAsukas(String name, String birthDay) {
-		//TO be thought
-		/*
-		if (currentPopulation > 0) {
-			asukkaat[number] = new Asukkaat(name, birthDay);
-		}
-		asukkaat[number] = new Asukkaat(name, birthDay);
-		*/
+		//Not implemented
 	}
 	public String getAsukas(int i) {
-		return asukkaat[i].toString();
+		return "\n\nAsukkaan " + (i+1) +" tiedot:\n" + asukkaat[i].toString();
+	}
+	public int getAsukasLkm() {
+		return asukkaat.length;
 	}
 }

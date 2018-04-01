@@ -7,16 +7,14 @@ public class Asukkaat {
 	private String name;
 	private String birthDate;
 	static Scanner lukija = new Scanner(System.in);
-	static int as_lkm;
 
 	public Asukkaat(String name, String birthDate) {
 		this.name = name;
 		this.birthDate = birthDate;
-		as_lkm++;
 	}
 
 	public String toString() {
-		return "\n\nAsukkaan tiedot:\n" + "Asukkaan nimi: " + getName() + "\nAsukkaan syntymäaika: " + getBirthdate();
+		return "Asukkaan nimi: " + getName() + "\nAsukkaan syntymäaika: " + getBirthdate();
 	}
 	public String getName() {
 		return name;

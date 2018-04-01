@@ -10,7 +10,8 @@ class AsuntoMain {
 		Tontti tontti = makeTontti();
 
 		System.out.println(tontti.toString());
-		System.out.println(tontti.getAsukas(1));
+		for (int i = 0; i < tontti.getAsukasLkm(); i++)
+			System.out.println(tontti.getAsukas(i));
 	}
 
 	public static Tontti makeTontti()
@@ -46,16 +47,16 @@ class AsuntoMain {
 		for (i = 0; i < asukkaiden_lkm; i++) {
 			if (ok == 1)
 				break;
-			System.out.println("Asukkaan " + i + " nimi: ");
+			System.out.println("Asukkaan " + (i+1) + " nimi: ");
 			String asukkaan_nimi = lukija.nextLine();
-			System.out.println("Asukkaan " + i + " syntymäaika: ");
+			System.out.println("Asukkaan " + (i+1) + " syntymäaika: ");
 			String asukkaan_synt = lukija.nextLine();
 			ok = tontti.setAsukas(asukkaan_nimi, asukkaan_synt);
 		}
 		return tontti;
 	
 }
-public static void checkGPS(String latituudi, String longituudi)
+public static void checkGPS(String latituudi, String longituudi) throws IllegalArgumentException
 {
 
 	//Sanity check for latitude and longitude
@@ -72,7 +73,7 @@ public static void checkGPS(String latituudi, String longituudi)
 		throw new IllegalArgumentException("GPS value problem. Exiting...");
 	}
 }
-	public static void negCheck(double value) {
+	public static void negCheck(double value) throws IllegalArgumentException {
 
 		if (value < 0) {
 			throw new IllegalArgumentException("Negative value NOT allowed. Exiting...");
