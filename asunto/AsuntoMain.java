@@ -16,30 +16,42 @@ class AsuntoMain {
 
 	public static Tontti makeTontti()
 	{
+		String tontin_nimi, longituudi, latituudi;
+		double tontin_ala, rakennuksen_ala;
+		int huoneiden_lkm, asukkaiden_lkm;
 		System.out.println("Anna tontin nimi: ");
-		String tontin_nimi = lukija.nextLine();
-
-		System.out.println("Anna longituudi: ");
-		String longituudi = lukija.nextLine();
+		tontin_nimi = lukija.nextLine();
+		do {
 
 		System.out.println("Anna latituudi: ");
-		String latituudi = lukija.nextLine();
+		latituudi = lukija.nextLine();
 
-		checkGPS(latituudi, longituudi);
+		System.out.println("Anna longituudi: ");
+		longituudi = lukija.nextLine();
 
+		} while (checkGPS(latituudi, longituudi) != 0);
+
+		do {
 		System.out.println("Anna tontin ala: ");
-		double tontin_ala = lukija.nextDouble();
-		negCheck(tontin_ala);
+		tontin_ala = lukija.nextDouble();
+		} while (negCheck(tontin_ala) != 0);
+
+		do {
 		System.out.println("Anna rakennuksen ala: ");
-		double rakennuksen_ala = lukija.nextDouble();
-		negCheck(rakennuksen_ala);
+		rakennuksen_ala = lukija.nextDouble();
+		} while (negCheck(rakennuksen_ala) != 0);
+
+		do {
 		System.out.println("Anna huoneiden lkm: ");
-		int huoneiden_lkm = lukija.nextInt();
-		negCheck(huoneiden_lkm);
+		huoneiden_lkm = lukija.nextInt();
+		} while(negCheck(huoneiden_lkm) != 0);
+
+		do {
 		System.out.println("Anna asukkaiden lkm: ");
-		int asukkaiden_lkm = lukija.nextInt();
-		negCheck(asukkaiden_lkm);
+		asukkaiden_lkm = lukija.nextInt();
 		lukija.nextLine();
+		} while (negCheck(asukkaiden_lkm) != 0);
+
 		Tontti tontti = new Tontti(tontin_nimi, longituudi, latituudi, tontin_ala, rakennuksen_ala,
 																	huoneiden_lkm, asukkaiden_lkm);
 		int i;
@@ -56,12 +68,12 @@ class AsuntoMain {
 		return tontti;
 	
 }
-public static void checkGPS(String latituudi, String longituudi) throws IllegalArgumentException
+public static int checkGPS(String latituudi, String longituudi)
 {
 
 	//Sanity check for latitude and longitude
-	String longitude_pattern = "(\\d{2}\\.\\d{3}N|S|n|s$)";
-	String latitude_pattern = "(\\d{2}\\.\\d{3}E|e|W|w$)";
+	String latitude_pattern = "(\\d{2}\\.\\d{3}N|S|n|s$)";
+	String longitude_pattern = "(\\d{2}\\.\\d{3}E|e|W|w$)";
 
 	Pattern lon = Pattern.compile(longitude_pattern);
 	Pattern lat = Pattern.compile(latitude_pattern);
@@ -70,14 +82,19 @@ public static void checkGPS(String latituudi, String longituudi) throws IllegalA
 	Matcher lat_match = lat.matcher(latituudi);
 	// See if both matched
 	if (!(lon_match.find() && lat_match.find())){
-		throw new IllegalArgumentException("GPS value problem. Exiting...");
+		System.out.println("Yritä uudelleen ");
+		return -1;
 	}
+	return 0;
 }
-	public static void negCheck(double value) throws IllegalArgumentException {
+
+	public static int negCheck(double value) throws IllegalArgumentException {
 
 		if (value < 0) {
-			throw new IllegalArgumentException("Negative value NOT allowed. Exiting...");
+			System.out.println("Negative value NOT allowed.");
+			return -1;
 		}
+		return 0;
 
 	}
 

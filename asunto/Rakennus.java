@@ -53,9 +53,7 @@ public class Rakennus {
 			System.out.println("No WAY! ");
 		return ok;
 	}
-	public void removeAsukas(String name, String birthDay) {
-		//Not implemented
-	}
+
 	public String getAsukas(int i) {
 		return "\n\nAsukkaan " + (i+1) +" tiedot:\n" + asukkaat[i].toString();
 	}

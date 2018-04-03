@@ -18,8 +18,8 @@ public class Tontti {
 		throw new IllegalArgumentException("Negative value NOT allowed. Exiting...");
 	}
 		//Sanity check for latitude and longitude
-		String longitude_pattern = "(\\d{2}\\.\\d{3}N|S|n|s$)";
-		String latitude_pattern = "(\\d{2}\\.\\d{3}E|e|W|w$)";
+		String latitude_pattern = "(\\d{2}\\.\\d{3}N|S|n|s$)";
+		String longitude_pattern = "(\\d{2}\\.\\d{3}E|e|W|w$)";
 
 		Pattern lon = Pattern.compile(longitude_pattern);
 		Pattern lat = Pattern.compile(latitude_pattern);
