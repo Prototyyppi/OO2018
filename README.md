@@ -6,4 +6,4 @@ classes themselves making the class structure tree-like.
 
 The when the Tontti is removed, we cannot access anything.
 
-I have tried to keep lines at a maximum of 100 characters to make code more readable.
+I have tried to keep lines at a maximum of 100 characters by using tabs to make code more readable.

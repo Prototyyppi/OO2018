@@ -4,6 +4,10 @@
 # Log file
 *.log
 
+# Report file
+report.txt
+raportti.txt
+
 # BlueJ files
 *.ctxt
 
