@@ -1,4 +1,3 @@
-package asunto;
 import java.io.*;
 import java.util.Scanner;
 import java.lang.Integer;
@@ -40,7 +39,8 @@ public class Rakennus {
 		dwellers = people;
 	}
 	public String toString() {
-		return "\n\nRakennuksen tiedot:\n" + "Rakennuksen huoneet: " + getRooms() + " \nRakennuksen ala: " + getArea();
+		return "\n\nRakennuksen tiedot:\n" + "Rakennuksen huoneet: " + getRooms() +
+																" \nRakennuksen ala: " + getArea();
 	}
 	public int setAsukas(String name, String birthDay) {
 		int ok = 1;
