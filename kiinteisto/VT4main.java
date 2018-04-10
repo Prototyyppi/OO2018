@@ -3,22 +3,21 @@ import java.util.Scanner;
 import java.lang.Integer;
 import java.util.regex.*;
 
-public class SubscriptionMain {
+public class VT4main {
 	static Scanner lukija = new Scanner(System.in);
-	private static final boolean REGULAR = false;
-	private static final boolean STANDING = true;
-
 	public static void main(String [] args) {
-
-		Subscription r_sub = init(REGULAR);
-		print(r_sub);
-
-		System.out.println();
-
-		Subscription s_sub = init(STANDING);
-		print(s_sub);
+		Property prop = new Property("asd", "gasd");
+		InsuranceInfo ins = new InsuranceInfo(prop, 123);
+		InsInfoContainer firstContainer = new InsInfoContainer();
+		firstContainer.addElem(ins);
+		firstContainer.printInsValueLess(300);
+		InsuranceInfo insq = new InsuranceInfo(new Property("AAAA", "BBBB"), 456);
+		InsuranceInfo insqw = new InsuranceInfo(new Property("CCCC", "DDDD"), 789);
+		firstContainer.addElem(insq);
+		firstContainer.addElem(insqw);
+		firstContainer.printVector();
 	}
-
+/*
 	public static void print(Subscription sub) {
 		System.out.println(sub.printInvoice());
 	}
@@ -53,4 +52,5 @@ public class SubscriptionMain {
 		new StandingSubscription(nimi, tilaaja, osoite, kuukausimaksu, alennus):
 		new RegularSubscription(nimi, tilaaja, osoite, kuukausimaksu, kesto);
 }
+*/
 }

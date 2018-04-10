@@ -1,33 +1,41 @@
 import java.io.*;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Vector;
 import java.lang.Integer;
 import java.util.regex.*;
 
-public class RegularSubscription extends Subscription {
+/* Tallennan InsuranceInfo olioita vectoriin */
+public class InsInfoContainer {
+	/* Vector with initial size of 10. (default w/o params) */
+	Vector<InsuranceInfo> vector = new Vector<InsuranceInfo>();
 
-	private int tilauksen_kesto;
+	public InsInfoContainer() {	}
 
-	public RegularSubscription(String lehden_nimi, String tilaaja, String osoite,
-																double kuukausimaksu, int kesto) {
-		super(lehden_nimi, tilaaja, osoite, kuukausimaksu);
-		this.tilauksen_kesto = kesto;
-
-	}
-
-	public int getKesto() {
-		return tilauksen_kesto;
+	public void addElem(InsuranceInfo ins) {
+		vector.addElement(ins);
 	}
 
 	public String toString() {
-		return "\nTilaus on määräaikainen" + "\nTilauksen kesto (kk): " + getKesto() +
-										"\nTilauksen hinta: " + (getKesto() * tilauksen_kesto);
+		return "\n";
 	}
 
-	public void setKesto(int kesto) {
-		this.tilauksen_kesto = kesto;
+	public void printVector() {
+		System.out.println(vector.toString());
 	}
 
-	public String printInvoice() {
-		return super.toString() + this.toString();
+	public void printInsValueLess(int threshold) {
+		for (int i = 0; i < vector.size(); i++){
+			InsuranceInfo element = vector.get(i);
+			if (element.getInsValue() <= threshold)
+				System.out.println(element.toString());
+		}
+	}
+	public void printInsValueMore(int threshold) {
+		for (int i = 0; i < vector.size(); i++){
+			InsuranceInfo element = vector.get(i);
+			if (element.getInsValue() >= threshold)
+				element.toString();
+		}
 	}
 }

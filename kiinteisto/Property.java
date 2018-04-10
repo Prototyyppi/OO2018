@@ -3,52 +3,32 @@ import java.util.Scanner;
 import java.lang.Integer;
 import java.util.regex.*;
 
-public abstract class Subscription {
-	private String lehden_nimi;
-	private String tilaajan_nimi;
-	private String toimitusosoite;
-	protected double kuukausihinta;
+public class Property {
+	private String tyyppi;
+	private String sijainti;
 
-
-	public Subscription(String lehden_nimi, String tilaaja, String osoite, double kuukausimaksu) {
-		this.lehden_nimi = lehden_nimi;
-		this.tilaajan_nimi = tilaaja;
-		this.toimitusosoite = osoite;
-		this.kuukausihinta = kuukausimaksu;
+	public Property(String tyyppi, String sijainti) {
+		this.tyyppi = tyyppi;
+		this.sijainti = sijainti;
 	}
 
-	public String getName() {
-		return lehden_nimi;
+	public String getTyyppi() {
+		return tyyppi;
 	}
-	public String getTilaaja() {
-		return tilaajan_nimi;
-	}
-	public String getToimitusosoite() {
-		return toimitusosoite;
-	}
-	public double getKuukausihinta() {
-		return kuukausihinta;
+	public String getSijainti() {
+		return sijainti;
 	}
 
 	public String toString() {
-		return "Lehden tiedot:\n" + "Lehden nimi: " + getName() +
-				" \nTilaajan nimi: " + getTilaaja()+ " \nToimitusosoite: " +
-				getToimitusosoite()+ " \nKuukausimaksu: " + getKuukausihinta();
+		return "Paikan tiedot:\n" + this.tyyppi +
+				" \nSijainti: " + this.sijainti;
 	}
 
-	public void setName(String name) {
-		this.lehden_nimi = name;
+	public void setTyyppi(String tyyppi) {
+		this.tyyppi = tyyppi;
 	}
-	public void setTilaaja(String name) {
-		this.tilaajan_nimi = name;
-	}
-	public void setToimitusosoite(String osoite) {
-		this.toimitusosoite = osoite;
-	}
-	public void setKuukausihinta(double hinta) {
-		this.kuukausihinta = hinta;
+	public void setSijainti(String sijainti) {
+		this.sijainti = sijainti;
 	}
 
-	public abstract String printInvoice();
-	// different functionality depending on inheritor
 }
