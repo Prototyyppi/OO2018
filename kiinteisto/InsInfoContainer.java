@@ -35,7 +35,7 @@ public class InsInfoContainer {
 		for (int i = 0; i < vector.size(); i++){
 			InsuranceInfo element = vector.get(i);
 			if (element.getInsValue() >= threshold)
-				element.toString();
+				System.out.println(element.toString());
 		}
 	}
 }

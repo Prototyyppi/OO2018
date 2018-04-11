@@ -18,7 +18,7 @@ public class InsuranceInfo {
 	}
 
 	public String toString() {
-		return "Kiinteistö: | Sijainti: " + kiinteisto.getSijainti() + " | Tyyppi: " + kiinteisto.getTyyppi() + " | Vakuutusarvo: " + this.vakuutusArvo + "\n";
+		return "Kiinteistö: | Sijainti: " + kiinteisto.getSijainti() + " | Tyyppi: " + kiinteisto.getTyyppi() + " | Vakuutusarvo: " + this.vakuutusArvo;
 	}
 
 
