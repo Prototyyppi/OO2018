@@ -56,7 +56,10 @@ public class Tontti {
 	public String toString() {
 		return "Tontin tiedot:\n" + "Tontin nimi: " + getName() + 
 				" \nTontin Latituudi: " + getLatitude()+ " \nTontin Longituudi: " +
-					getLongitude()+ " \nTontin ala: " + getArea() + rak.toString();
+					getLongitude()+ " \nTontin ala: " + getArea();
+	}
+	public String rakennusToString() {
+		return rak.toString();
 	}
 
 	public void setName(String name) {
@@ -76,8 +79,8 @@ public class Tontti {
 		ok = rak.setAsukas(name, birthDay);
 		return ok;
 	}
-	public String getAsukas(int i) {
-		return rak.getAsukas(i);
+	public String getAsukasInfo(int i) {
+		return rak.getAsukasInfo(i);
 	}
 	public int getAsukasLkm() {
 		return rak.getAsukasLkm();

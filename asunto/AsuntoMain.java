@@ -7,10 +7,10 @@ class AsuntoMain {
 	public static void main(String[] args)
 	{
 		Tontti tontti = makeTontti();
-
 		System.out.println(tontti.toString());
+		System.out.println(tontti.rakennusToString());
 		for (int i = 0; i < tontti.getAsukasLkm(); i++)
-			System.out.println(tontti.getAsukas(i));
+			System.out.println(tontti.getAsukasInfo(i));
 	}
 
 	public static Tontti makeTontti()
@@ -46,23 +46,23 @@ class AsuntoMain {
 		} while(negCheck(huoneiden_lkm) != 0);
 
 		do {
-		System.out.println("Anna asukkaiden lkm: ");
+		System.out.println("Anna asukkaiden lkm (väh 1 kpl): ");
 		asukkaiden_lkm = lukija.nextInt();
 		lukija.nextLine();
-		} while (negCheck(asukkaiden_lkm) != 0);
+		} while ((negCheck(asukkaiden_lkm) != 0) || (asukkaiden_lkm < 1));
 
 		Tontti tontti = new Tontti(tontin_nimi, longituudi, latituudi, tontin_ala, rakennuksen_ala,
 																	huoneiden_lkm, asukkaiden_lkm);
 		int i;
 		int ok = 0;
 		for (i = 0; i < asukkaiden_lkm; i++) {
-			if (ok == 1)
-				break;
 			System.out.println("Asukkaan " + (i+1) + " nimi: ");
 			String asukkaan_nimi = lukija.nextLine();
 			System.out.println("Asukkaan " + (i+1) + " syntymäaika: ");
 			String asukkaan_synt = lukija.nextLine();
 			ok = tontti.setAsukas(asukkaan_nimi, asukkaan_synt);
+			if (ok == 1)
+				break;
 		}
 		return tontti;
 	
@@ -87,14 +87,13 @@ public static int checkGPS(String latituudi, String longituudi)
 	return 0;
 }
 
-	public static int negCheck(double value) throws IllegalArgumentException {
+	public static int negCheck(double value) {
 
 		if (value < 0) {
-			System.out.println("Negative value NOT allowed.");
+			System.out.println("Anna positiivinen luku.");
 			return -1;
 		}
 		return 0;
-
 	}
 
 

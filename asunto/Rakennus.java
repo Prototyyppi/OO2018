@@ -16,9 +16,6 @@ public class Rakennus {
 		Asukkaat[] asukas = new Asukkaat[dwellers];
 		this.asukkaat = asukas;
 		currentPopulation = 0;
-		/*for (i = 0; i < asukas.length; i++) {
-			asukas[i] = new Asukkaat(i+1);
-		}*/
 	}
 	public double getArea() {
 		return area;
@@ -49,12 +46,10 @@ public class Rakennus {
 			currentPopulation++;
 			ok = 0;
 		}
-		else
-			System.out.println("No WAY! ");
 		return ok;
 	}
 
-	public String getAsukas(int i) {
+	public String getAsukasInfo(int i) {
 		return "\n\nAsukkaan " + (i+1) +" tiedot:\n" + asukkaat[i].toString();
 	}
 	public int getAsukasLkm() {
