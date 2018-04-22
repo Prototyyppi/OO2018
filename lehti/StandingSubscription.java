@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 import java.lang.Integer;
 import java.util.regex.*;
+import java.text.DecimalFormat;
 
 public class StandingSubscription extends Subscription {
 
@@ -17,6 +18,18 @@ public class StandingSubscription extends Subscription {
 		return alennusprosentti;
 	}
 
+	public String getMaksu(int decimal) {
+		String format = "#.0";
+		int i = 1;
+		if (decimal < 10)
+			while (i < decimal) {
+				format = format + "0";
+				i++;
+			}
+		DecimalFormat numberFormat = new DecimalFormat(format);
+		return numberFormat.format(kuukausihinta * 12);
+	}
+
 	public void modifyMaksu() {
 		kuukausihinta *= (1 - (alennusprosentti / 100.0));
 	}
@@ -26,7 +39,7 @@ public class StandingSubscription extends Subscription {
 	}
 
 	public String toString() {
-		return " \nAlennusprosentti: " + getAlennus() + " \nVuosimaksu: " + getMaksu();
+		return " \nAlennusprosentti: " + getAlennus() + " \nVuosimaksu: " + getMaksu(2);
 	}
 
 	public void setAlennus(int alennus) {
