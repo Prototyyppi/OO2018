@@ -37,7 +37,7 @@ public class SubscriptionMain {
 			System.out.println("kuukausimaksu");
 			kuukausimaksu = lukija.nextDouble();
 			lukija.nextLine();
-		} while(kuukausimaksu < 0); 
+		} while(kuukausimaksu < 0);
 
 		if (type) {
 			do {

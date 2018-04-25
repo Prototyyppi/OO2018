@@ -32,8 +32,8 @@ public abstract class Subscription {
 
 	public String toString() {
 		return "Lehden tiedot:\n" + "Lehden nimi: " + getName() +
-				" \nTilaajan nimi: " + getTilaaja()+ " \nToimitusosoite: " +
-				getToimitusosoite()+ " \nKuukausimaksu: " + getKuukausihinta();
+				" \nTilaajan nimi: " + getTilaaja() + " \nToimitusosoite: " +
+				getToimitusosoite() + String.format("\nKuukausimaksu: %.2f", getKuukausihinta());
 	}
 
 	public void setName(String name) {
@@ -50,5 +50,5 @@ public abstract class Subscription {
 	}
 
 	public abstract String printInvoice();
-	// different functionality depending on inheritor
+	// Can have different functionality depending on inheritor
 }

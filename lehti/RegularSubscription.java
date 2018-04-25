@@ -20,7 +20,7 @@ public class RegularSubscription extends Subscription {
 
 	public String toString() {
 		return "\nTilaus on määräaikainen" + "\nTilauksen kesto (kk): " + getKesto() +
-										"\nTilauksen hinta: " + (getKesto() * tilauksen_kesto);
+										"\nTilauksen hinta: " + (getKesto() * kuukausihinta);
 	}
 
 	public void setKesto(int kesto) {
