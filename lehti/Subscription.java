@@ -7,7 +7,7 @@ public abstract class Subscription {
 	private String lehden_nimi;
 	private String tilaajan_nimi;
 	private String toimitusosoite;
-	protected double kuukausihinta;
+	private double kuukausihinta;
 
 
 	public Subscription(String lehden_nimi, String tilaaja, String osoite, double kuukausimaksu) {

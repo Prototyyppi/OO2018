@@ -27,15 +27,17 @@ public class StandingSubscription extends Subscription {
 				i++;
 			}
 		DecimalFormat numberFormat = new DecimalFormat(format);
-		return numberFormat.format(kuukausihinta * 12);
+		return numberFormat.format(getKuukausihinta() * 12);
 	}
 
 	public void modifyMaksu() {
-		kuukausihinta *= (1 - (alennusprosentti / 100.0));
+		double kuukausimaksu = getKuukausihinta();
+		kuukausimaksu *= (1 - (alennusprosentti / 100.0));
+		setKuukausihinta(kuukausimaksu);
 	}
 
 	public double getMaksu() {
-		return kuukausihinta * 12;
+		return getKuukausihinta() * 12;
 	}
 
 	public String toString() {

@@ -12,7 +12,7 @@ public class SubscriptionMain {
 
 		Subscription r_sub = init(REGULAR);
 		printSubscriptionInvoice(r_sub);
-
+		
 		System.out.println();
 
 		Subscription s_sub = init(STANDING);
