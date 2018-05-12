@@ -1,7 +1,4 @@
 import java.io.*;
-import java.util.Scanner;
-import java.lang.Integer;
-import java.util.regex.*;
 
 public class InsuranceInfo {
 
@@ -13,14 +10,16 @@ public class InsuranceInfo {
 		this.vakuutusArvo = vakuutusArvo;
 	}
 
-	public double getInsValue(){
+	public double getInsValue() {
 		return vakuutusArvo;
+	}
+
+	public void setInsValue(double vak_arvo) {
+		vakuutusArvo = vak_arvo;
 	}
 
 	public String toString() {
 		return "Kiinteistö: | Sijainti: " + kiinteisto.getSijainti() + " | Tyyppi: " + kiinteisto.getTyyppi() + " | Vakuutusarvo: " + this.vakuutusArvo;
 	}
-
-
 
 }

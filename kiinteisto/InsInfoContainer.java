@@ -1,18 +1,16 @@
 import java.io.*;
-import java.util.Iterator;
-import java.util.Scanner;
 import java.util.Vector;
-import java.lang.Integer;
-import java.util.regex.*;
+
 
 /* Tallennan InsuranceInfo olioita vectoriin */
 public class InsInfoContainer {
-	/* Vector with initial size of 10. (default w/o params) */
-	Vector<InsuranceInfo> vector = new Vector<InsuranceInfo>();
+	/* Vector with initial size of 10. (default w/o params). Here initialized to size of 1 */
+	private Vector<InsuranceInfo> vector = new Vector<InsuranceInfo>(0);
 
 	public InsInfoContainer() {	}
 
 	public void addElem(InsuranceInfo ins) {
+		/* addElement increades the vector length also by 1 */
 		vector.addElement(ins);
 	}
 
@@ -21,6 +19,7 @@ public class InsInfoContainer {
 	}
 
 	public void printVector() {
+		/* Using the method found in vector itself */
 		System.out.println(vector.toString());
 	}
 
@@ -31,6 +30,7 @@ public class InsInfoContainer {
 				System.out.println(element.toString());
 		}
 	}
+
 	public void printInsValueMore(int threshold) {
 		for (int i = 0; i < vector.size(); i++){
 			InsuranceInfo element = vector.get(i);

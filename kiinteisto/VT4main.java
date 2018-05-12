@@ -10,6 +10,7 @@ public class VT4main {
 		int threshold = lukija.nextInt();
 		System.out.println("Objektit joiden vakuutusarvo on pienempi tai yhtäsuuri:");
 		firstContainer.printInsValueLess(threshold);
+		System.out.println("-------------------------------------------------------");
 		System.out.println("Objektit joiden vakuutusarvo on suurempi tai yhtäsuuri:");
 		firstContainer.printInsValueMore(threshold);
 		System.out.println("Kaikki arvot:");
@@ -17,6 +18,7 @@ public class VT4main {
 	}
 	public static InsInfoContainer initWithFive() {
 		InsInfoContainer firstContainer = new InsInfoContainer();
+		System.out.println("Anna 5 kiinteistöä");
 		for (int i = 0; i<5; i++){
 			System.out.println("Anna tyyppi");
 			String tyyppi = lukija.nextLine();
