@@ -1,78 +1,54 @@
 import java.io.*;
-import java.util.Scanner;
-import java.lang.Integer;
-import java.util.regex.*;
 
 public class Tontti {
-	private String name;
-	private String latitude;
-	private String longitude;
-	private double area;
+	private String nimi;
+	private String osoite;
+	private double pinta_ala;
 	private Rakennus rak;
 
-	public Tontti(String name, String longitude, String latitude, double area, double rak_area,
-										int rooms, int people) throws IllegalArgumentException {
-	//These are here again just to be safe...
-	if (area < 0) {
-		throw new IllegalArgumentException("Negative value NOT allowed. Exiting...");
-	}
-		//Sanity check for latitude and longitude
-		String latitude_pattern = "(\\d{2}\\.\\d{3}N|S|n|s$)";
-		String longitude_pattern = "(\\d{2}\\.\\d{3}E|e|W|w$)";
-
-		Pattern lon = Pattern.compile(longitude_pattern);
-		Pattern lat = Pattern.compile(latitude_pattern);
-
-		Matcher lon_match = lon.matcher(longitude);
-		Matcher lat_match = lat.matcher(latitude);
-		// See if both matched
-		if (!(lon_match.find() && lat_match.find())){
-			throw new IllegalArgumentException("GPS value problem. Exiting...");
-		}
-		this.name = name;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.area = area;
-		//Make the rakennus that is in the tontti
-		Rakennus rakennus = new Rakennus(rak_area, rooms, people);
+	public Tontti(String nimi, String osoite, double pinta_ala, double rak_ala, int rak_huoneet, int rak_asukkaat, int tyyppi) {
+		Rakennus rakennus;
+		this.osoite = osoite;
+		this.nimi = nimi;
+		this.pinta_ala = pinta_ala;
+		if (tyyppi == 0)
+			rakennus = new Kerrostalo(rak_ala, rak_huoneet, rak_asukkaat);
+		else if (tyyppi == 1)
+			rakennus = new Rivitalo(rak_ala, rak_huoneet, rak_asukkaat);
+		else
+			rakennus = new Omakotitalo(rak_ala, rak_huoneet, rak_asukkaat);
 		this.rak = rakennus;
 	}
 
-	public String getName() {
-		return name;
+	public String getNimi() {
+		return nimi;
 	}
-	public String getLatitude() {
-		return latitude;
+	public String getOsoite() {
+		return osoite;
 	}
-	public String getLongitude() {
-		return longitude;
+	public double getPintaAla() {
+		return pinta_ala;
 	}
-	public double getArea() {
-		return area;
-	}
+
 	public void setRakennus(Rakennus rakennus) {
 		rak = rakennus;
 	}
 	public String toString() {
-		return "Tontin tiedot:\n" + "Tontin nimi: " + getName() + 
-				" \nTontin Latituudi: " + getLatitude()+ " \nTontin Longituudi: " +
-					getLongitude()+ " \nTontin ala: " + getArea();
+		return "Tontin tiedot:\n" + "Tontin nimi: " + getNimi() +
+				" \nTontin osoite" + getOsoite() + "\nTontin ala: " + getPintaAla();
 	}
 	public String rakennusToString() {
 		return rak.toString();
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
 	}
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
+	public void setOsoite(String osoite) {
+		this.osoite = osoite;
 	}
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-	public void setArea(double area) {
-		this.area = area;
+	public void setPintaAla(double ala) {
+		this.pinta_ala = ala;
 	}
 	public int setAsukas(String name, String birthDay) {
 		int ok;

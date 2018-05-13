@@ -1,11 +1,8 @@
 import java.io.*;
-import java.util.Scanner;
-import java.lang.Integer;
 
 public class Asukkaat {
 	private String name;
 	private String birthDate;
-	static Scanner lukija = new Scanner(System.in);
 
 	public Asukkaat(String name, String birthDate) {
 		this.name = name;

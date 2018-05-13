@@ -1,39 +1,38 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Integer;
 
-public class Rakennus {
-	private double area;
-	private int room_count;
-	private int dwellers;
-	private Asukkaat [] asukkaat;
+public abstract class Rakennus {
+	private double ala;
+	private int huoneet;
+	private int asukas_lkm;
+	private ArrayList<Asukkaat> asukaspurkki = new ArrayList<Asukkaat>();
 	private int currentPopulation;
 
-	public Rakennus(double area, int room_count, int dwellers) {
-		this.area = area;
-		this.room_count = room_count;
-		this.dwellers = dwellers;
-		Asukkaat[] asukas = new Asukkaat[dwellers];
-		this.asukkaat = asukas;
+	public Rakennus(double ala, int huoneet, int asukas_lkm) {
+		this.ala = ala;
+		this.huoneet = huoneet;
+		this.asukas_lkm = asukas_lkm;
 		currentPopulation = 0;
 	}
 	public double getArea() {
-		return area;
+		return ala;
 	}
 	public int getRooms() {
-		return room_count;
+		return huoneet;
 	}
 	public int getPeople() {
-		return dwellers;
+		return asukas_lkm;
 	}
 	public void setArea(double area) {
-		this.area = area;
+		this.ala = area;
 	}
 	public void setRooms(int rooms) {
-		this.room_count = rooms;
+		this.huoneet = rooms;
 	}
 	public void setPeople(int people) {
-		dwellers = people;
+		asukas_lkm = people;
 	}
 	public String toString() {
 		return "\n\nRakennuksen tiedot:\n" + "Rakennuksen huoneet: " + getRooms() +
@@ -41,8 +40,9 @@ public class Rakennus {
 	}
 	public int setAsukas(String name, String birthDay) {
 		int ok = 1;
-		if (currentPopulation < dwellers) {
-			asukkaat[currentPopulation] = new Asukkaat(name, birthDay);
+		if (currentPopulation < asukas_lkm) {
+			asukaspurkki.add(new Asukkaat(name, birthDay));
+			asukaspurkki.trimToSize();
 			currentPopulation++;
 			ok = 0;
 		}
@@ -50,9 +50,10 @@ public class Rakennus {
 	}
 
 	public String getAsukasInfo(int i) {
-		return "\n\nAsukkaan " + (i+1) +" tiedot:\n" + asukkaat[i].toString();
+		Asukkaat asukas = asukaspurkki.get(i);
+		return "\n\nAsukkaan " + (i+1) +" tiedot:\n" + asukas.toString();
 	}
 	public int getAsukasLkm() {
-		return asukkaat.length;
+		return asukaspurkki.size();
 	}
 }
