@@ -35,7 +35,7 @@ public class Tontti {
 	}
 	public String toString() {
 		return "Tontin tiedot:\n" + "Tontin nimi: " + getNimi() +
-				" \nTontin osoite" + getOsoite() + "\nTontin ala: " + getPintaAla();
+				" \nTontin osoite: " + getOsoite() + "\nTontin ala: " + getPintaAla();
 	}
 	public String rakennusToString() {
 		return rak.toString();

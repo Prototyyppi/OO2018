@@ -1,20 +1,17 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.lang.Integer;
 
 public abstract class Rakennus {
 	private double ala;
 	private int huoneet;
 	private int asukas_lkm;
 	private ArrayList<Asukkaat> asukaspurkki = new ArrayList<Asukkaat>();
-	private int currentPopulation;
 
 	public Rakennus(double ala, int huoneet, int asukas_lkm) {
 		this.ala = ala;
 		this.huoneet = huoneet;
 		this.asukas_lkm = asukas_lkm;
-		currentPopulation = 0;
 	}
 	public double getArea() {
 		return ala;
@@ -40,10 +37,9 @@ public abstract class Rakennus {
 	}
 	public int setAsukas(String name, String birthDay) {
 		int ok = 1;
-		if (currentPopulation < asukas_lkm) {
+		if (this.getAsukasLkm() < asukas_lkm) {
 			asukaspurkki.add(new Asukkaat(name, birthDay));
 			asukaspurkki.trimToSize();
-			currentPopulation++;
 			ok = 0;
 		}
 		return ok;
