@@ -9,7 +9,9 @@ private int arvaukset;
 private ArrayList<Character> arvauslista = new ArrayList<Character>();
 
 	public Hirsipuu(Sanalista lista, int arvaukset) {
-		Random rand = new Random();
+		Random rand = new Random(System.currentTimeMillis());
+		if (lista.IsEmpty())
+			throw new java.lang.Error("Was empty, nothing we can do");
 		int n = rand.nextInt(lista.size());
 		sana = lista.get(n);
 		this.arvaukset = arvaukset;

@@ -7,12 +7,15 @@ class HirsiMain {
 	public static void main(String[] args) throws FileNotFoundException
 	{
 	Hirsipuu hirsi;
-	Sanalista lista = InitSanalista( );
-	try {
+	Sanalista lista;
+	//try {
+	lista = InitSanalista( );
+	lista = lista.sanaJoissaMerkit("stat_c");
+	
 	hirsi = InitHirsipuu(lista);
-	} catch(Exception e) {
+	/*} catch(Exception e) {
 		return;
-	}
+	}*/
 	PlayHirsipuu(hirsi);
 	return;
 	}
@@ -36,7 +39,7 @@ class HirsiMain {
 		Character arvaus;
 		while(hirsi.arvauksiaOnJaljella() > 0) {
 			System.out.println(hirsi.toString());
-			System.out.printf("Arvauksia jäljellä %d", hirsi.arvauksiaOnJaljella());
+			System.out.printf("Arvauksia jäljellä %d\n", hirsi.arvauksiaOnJaljella());
 			System.out.printf("Arvauksesi: ");
 			arvaus = lukija.next().charAt(0);
 			if(hirsi.arvaa(arvaus))
@@ -48,6 +51,7 @@ class HirsiMain {
 				return 2;
 			}
 		}
+		System.out.println("Hävisit pelin");
 		return 1;
 	}
 
