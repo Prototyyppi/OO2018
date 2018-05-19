@@ -1,22 +1,19 @@
 import java.io.*;
-import java.util.Scanner;
-
-import java.util.Random;
-
+import java.util.*;
 import java.lang.*;
 
 public class Hirsipuu {
 private String sana;
 private StringBuilder sana_arvaus;
 private int arvaukset;
-private ArrayList<Character> arvauslista = new <Character>Arraylist();
+private ArrayList<Character> arvauslista = new ArrayList<Character>();
 
 	public Hirsipuu(Sanalista lista, int arvaukset) {
 		Random rand = new Random();
 		int n = rand.nextInt(lista.size());
 		sana = lista.get(n);
 		this.arvaukset = arvaukset;
-		sana_arvaus = StringUtils.repeat("_", sana.length());
+		sana_arvaus = new StringBuilder(new String(new char[sana.length()]).replace('\0', '_'));
 	}
 
 	public boolean arvaa( Character merkki ) {
