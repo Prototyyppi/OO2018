@@ -3,10 +3,11 @@ import java.util.*;
 import java.lang.*;
 
 public class Hirsipuu {
-private String sana;
-private StringBuilder sana_arvaus;
-private int arvaukset;
-private ArrayList<Character> arvauslista = new ArrayList<Character>();
+
+	private String sana;
+	private StringBuilder sana_arvaus;
+	private int arvaukset;
+	private ArrayList<Character> arvauslista = new ArrayList<Character>();
 
 	public Hirsipuu(Sanalista lista, int arvaukset) {
 		Random rand = new Random(System.currentTimeMillis());
@@ -20,6 +21,7 @@ private ArrayList<Character> arvauslista = new ArrayList<Character>();
 
 	public boolean arvaa( Character merkki ) {
 		boolean ret = false;
+		merkki = Character.toUpperCase(merkki);
 		arvauslista.add(merkki);
 		//if (sana.indexOf(merkki) != -1)
 		//	return true;
@@ -34,22 +36,49 @@ private ArrayList<Character> arvauslista = new ArrayList<Character>();
 		return ret;
 	}
 
-	public List<Character> arvaukset(){
+	public String getSana() {
+		return sana;
+	}
+	public StringBuilder getSanaArvaus() {
+		return sana_arvaus;
+	}
+	public int getArvaus() {
+		return arvaukset;
+	}
+	public List<Character> getArvausLista() {
 		return arvauslista;
 	}
 
-	public int arvauksiaOnJaljella(){
+	public void setSana(String sana) {
+		this.sana = sana;
+	}
+	public void setSanaArvaus(StringBuilder sana_arvaus){
+		this.sana_arvaus = sana_arvaus;
+	}
+	public void setArvaus(int arvaukset){
+		this.arvaukset = arvaukset;
+	}
+	public void setArvausLista(ArrayList<Character> arvauslista){
+		this.arvauslista = arvauslista;
+	}
+
+	public List<Character> arvaukset() {
+		return arvauslista;
+	}
+
+	public int arvauksiaOnJaljella() {
 		return arvaukset;
 	}
 
-	public String sana( ){
+	public String sana( ) {
 		return sana;
 	}
 
-	public boolean onLoppu( ){
+	public boolean onLoppu( ) {
 		return sana.equalsIgnoreCase(sana_arvaus.toString());
 	}
 
+	/* Current state of game */
 	public String toString() {
 		return sana_arvaus.toString();
 	}
