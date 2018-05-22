@@ -1,18 +1,18 @@
 import java.io.*;
 import java.util.*;
 import java.lang.*;
+
 public class Sanalista {
 
 	private ArrayList<String> arr = new ArrayList<String>();
+
 	public Sanalista(String sanalista_file) throws FileNotFoundException {
-		//Lue sanat tiedostosta LIST rakenteeseen
-		//TODO error check
+
 		Scanner input = new Scanner(new File(sanalista_file));
 
 		while(input.hasNext()) {
 			String word = input.next();
-			word.toUpperCase();
-			//TODO Check if it is alredy there
+			word = word.toUpperCase();
 			arr.add(word);
 		}
 		input.close();
@@ -22,6 +22,13 @@ public class Sanalista {
 	// No need to do anything here
 	}
 
+	public List<String> getLista() {
+		return arr;
+	}
+
+	public void setLista(ArrayList<String> lista){
+		this.arr = lista;
+	}
 
 	public List<String> annaSanat( ){
 		return arr;
@@ -34,14 +41,15 @@ public class Sanalista {
 				new_sanalista.add(element);
 		}
 		if (new_sanalista.IsEmpty())
-			throw new java.lang.Error("Was empty, nothing we can do");
+			throw new java.lang.Error("No matching elements, exiting..");
 		return new_sanalista;
 	}
 
 	public Sanalista sanaJoissaMerkit( String mjono ) {
-		//TODO testing
+
 		Sanalista new_sanalista = new Sanalista();
 		int potential_add = 0;
+		mjono = mjono.toUpperCase();
 		for (String element : arr) {
 			if (element.length() == mjono.length()) {
 				for (int i=0; i < element.length(); i++) {
@@ -56,6 +64,8 @@ public class Sanalista {
 					new_sanalista.add(element);
 			}
 		}
+		if (new_sanalista.IsEmpty())
+			throw new java.lang.Error("No matching elements, exiting..");
 		return new_sanalista;
 	}
 	public String toString() {

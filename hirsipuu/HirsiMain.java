@@ -4,18 +4,14 @@ import java.util.Scanner;
 class HirsiMain {
 	static Scanner lukija = new Scanner(System.in);
 
-	public static void main(String[] args) throws FileNotFoundException
-	{
+	public static void main(String[] args) throws FileNotFoundException {
 	Hirsipuu hirsi;
 	Sanalista lista;
-	//try {
 	lista = InitSanalista( );
-	lista = lista.sanaJoissaMerkit("stat_c");
-	
+	//lista = lista.sanaJoissaMerkit("_____");
+	//lista = lista.sanatJoidenPituusOn(5);
 	hirsi = InitHirsipuu(lista);
-	/*} catch(Exception e) {
-		return;
-	}*/
+
 	PlayHirsipuu(hirsi);
 	return;
 	}
@@ -37,24 +33,24 @@ class HirsiMain {
 	public static int PlayHirsipuu(Hirsipuu hirsi)
 	{
 		Character arvaus;
-		while(hirsi.arvauksiaOnJaljella() > 0) {
+		while (hirsi.arvauksiaOnJaljella() > 0) {
 			System.out.println(hirsi.toString());
 			System.out.printf("Arvauksia jäljellä %d\n", hirsi.arvauksiaOnJaljella());
 			System.out.printf("Arvauksesi: ");
 			arvaus = lukija.next().charAt(0);
-			if(hirsi.arvaa(arvaus))
+			if (hirsi.arvaa(arvaus))
 				System.out.println("Löytyy kyllä");
 			else
 				System.out.println("Väärin");
 			if (hirsi.onLoppu()) {
 				System.out.println("Voitit pelin");
-				return 2;
+				System.out.println("Sana oli " + hirsi.sana());
+				return 0;
 			}
 		}
 		System.out.println("Hävisit pelin");
+		System.out.println("Sana oli " + hirsi.sana());
 		return 1;
 	}
-
-
 
 }
